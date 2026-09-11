@@ -414,7 +414,7 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
       <div className="flex flex-col items-center justify-center gap-6 py-4 sm:py-8 text-center">
         <div className="w-full max-w-2xl overflow-hidden rounded-xl shadow-lg">
           <Image
-            src="/image copy 2.png"
+            src="/welcome-banner.png"
             alt="Internet turbinada Federal Associados"
             width={1024}
             height={1536}
