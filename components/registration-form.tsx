@@ -302,13 +302,38 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
       else if (formData.typeFrete === "semFrete") formaEnvio = "Retirar na Associação"
       else if (formData.typeFrete === "eSim") formaEnvio = "eSim"
 
+      let dispositivoModelo = ""
+
+try {
+  const nav = navigator as Navigator & {
+    userAgentData?: {
+      getHighEntropyValues: (
+        hints: string[]
+      ) => Promise<{
+        model?: string
+      }>
+    }
+  }
+
+  if (nav.userAgentData) {
+    const dados = await nav.userAgentData.getHighEntropyValues([
+      "model",
+    ])
+
+    dispositivoModelo = dados.model || ""
+  }
+} catch (error) {
+  console.error("Erro ao identificar dispositivo:", error)
+}
+
       const webhookData = {
-        nome: formData.name, cpf: formData.cpf, data_nascimento: formData.birth, email: formData.email,
-        whatsapp: formData.cell, telefone_fixo: "", plano: planName, plan_id: formData.plan_id,
-        tipo_chip: formData.typeChip === "fisico" ? "fisico" : "eSim", forma_envio: formaEnvio,
-        cep: formData.cep, endereco: formData.street, numero: formData.number, complemento: formData.complement,
-        bairro: formData.district, cidade: formData.city, estado: formData.state, referral_id: REFERRAL_ID,
-      }
+  nome: formData.name, cpf: formData.cpf, data_nascimento: formData.birth, email: formData.email,
+  whatsapp: formData.cell, telefone_fixo: "", plano: planName, plan_id: formData.plan_id,
+  tipo_chip: formData.typeChip === "fisico" ? "fisico" : "eSim", forma_envio: formaEnvio,
+  cep: formData.cep, endereco: formData.street, numero: formData.number, complemento: formData.complement,
+  bairro: formData.district, cidade: formData.city, estado: formData.state, referral_id: REFERRAL_ID,
+  dispositivo_modelo: dispositivoModelo,
+}
 
       const webhookURLs: { [key: string]: string } = {
         "110956": "https://webhook.fiqon.app/webhook/a0265c1b-d832-483e-af57-8096334a57a8/e167dea4-079e-4af4-9b3f-4acaf711f432",
