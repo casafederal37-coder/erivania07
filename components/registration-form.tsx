@@ -403,7 +403,7 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
   const StepIndicator = () => (
     <div className="flex items-center justify-center gap-1.5 mb-6">
       {STEP_TITLES.map((_, i) => (
-        <div key={i} className={`h-2 rounded-full transition-all ${i === step ? "w-8 bg-blue-600" : i < step ? "w-2 bg-blue-400" : "w-2 bg-gray-300"}`} />
+        <div key={i} className={`h-2 rounded-full transition-all ${i === step ? "w-8 bg-primary" : i < step ? "w-2 bg-primary/60" : "w-2 bg-muted"}`} />
       ))}
     </div>
   )
@@ -424,7 +424,7 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
         </div>
         <Button
           onClick={() => setShowWelcome(false)}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-base md:text-lg font-semibold rounded-lg shadow-lg"
+          className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-base md:text-lg font-semibold rounded-lg shadow-lg"
         >
           {"INICIAR CADASTRO"}
         </Button>
@@ -437,7 +437,7 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
     <>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6">
         <StepIndicator />
-        <h2 className="text-lg md:text-xl font-semibold text-center text-gray-800">{STEP_TITLES[step]}</h2>
+        <h2 className="text-lg md:text-xl font-semibold text-center text-foreground">{STEP_TITLES[step]}</h2>
 
         {/* BLOCO 2 - Tipo de Chip */}
         {step === 1 && (
@@ -451,16 +451,16 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
                 }}
                 className="flex flex-col gap-4"
               >
-                <label htmlFor="chip-fisico" className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.typeChip === "fisico" ? "border-blue-600 bg-blue-50" : "border-gray-200 hover:border-gray-300"}`}>
+                <label htmlFor="chip-fisico" className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.typeChip === "fisico" ? "border-primary bg-primary/10" : "border-border hover:border-primary/50"}`}>
                   <RadioGroupItem value="fisico" id="chip-fisico" />
                   <div>
-                    <span className="font-medium text-gray-900">{"fisico"}</span>
+                    <span className="font-medium text-foreground">{"fisico"}</span>
                   </div>
                 </label>
-                <label htmlFor="chip-esim" className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.typeChip === "eSim" ? "border-blue-600 bg-blue-50" : "border-gray-200 hover:border-gray-300"}`}>
+                <label htmlFor="chip-esim" className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.typeChip === "eSim" ? "border-primary bg-primary/10" : "border-border hover:border-primary/50"}`}>
                   <RadioGroupItem value="eSim" id="chip-esim" />
                   <div>
-                    <span className="font-medium text-gray-900">{"eSim"}</span>
+                    <span className="font-medium text-foreground">{"eSim"}</span>
                   </div>
                 </label>
               </RadioGroup>
@@ -479,10 +479,10 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
                     <button
                       type="button"
                       onClick={() => setSelectedOperator("VIVO")}
-                      className="flex items-center justify-between p-4 rounded-lg border-2 border-gray-200 hover:border-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
+                      className="flex items-center justify-between p-4 rounded-lg border-2 border-border hover:border-primary hover:bg-primary/10 transition-colors cursor-pointer"
                     >
                       <span className="font-semibold text-lg" style={{ color: "#8B5CF6" }}>VIVO</span>
-                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
@@ -490,10 +490,10 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
                     <button
                       type="button"
                       onClick={() => setSelectedOperator("TIM")}
-                      className="flex items-center justify-between p-4 rounded-lg border-2 border-gray-200 hover:border-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
+                      className="flex items-center justify-between p-4 rounded-lg border-2 border-border hover:border-primary hover:bg-primary/10 transition-colors cursor-pointer"
                     >
                       <span className="font-semibold text-lg" style={{ color: "#1E90FF" }}>TIM</span>
-                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
@@ -501,10 +501,10 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
                     <button
                       type="button"
                       onClick={() => setSelectedOperator("CLARO")}
-                      className="flex items-center justify-between p-4 rounded-lg border-2 border-gray-200 hover:border-blue-600 hover:bg-blue-50 transition-colors cursor-pointer"
+                      className="flex items-center justify-between p-4 rounded-lg border-2 border-border hover:border-primary hover:bg-primary/10 transition-colors cursor-pointer"
                     >
                       <span className="font-semibold text-lg" style={{ color: "#DC143C" }}>CLARO</span>
-                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
@@ -512,10 +512,10 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
                     <button
                       type="button"
                       onClick={() => setShowCoberturaModal(true)}
-                      className="flex items-center justify-between p-4 rounded-lg border-2 border-gray-200 hover:border-orange-500 hover:bg-orange-50 transition-colors cursor-pointer"
+                      className="flex items-center justify-between p-4 rounded-lg border-2 border-border hover:border-accent hover:bg-accent/10 transition-colors cursor-pointer"
                     >
                       <span className="font-semibold text-lg" style={{ color: "#EA580C" }}>NÃO SEI</span>
-                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
@@ -531,7 +531,7 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
                         setSelectedOperator(null)
                         handleInputChange("plan_id", "")
                       }}
-                      className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm font-medium"
+                      className="flex items-center gap-2 text-primary hover:text-primary/80 text-sm font-medium"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -540,7 +540,7 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
                     </button>
 
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      <h3 className="text-lg font-semibold text-foreground mb-3">
                         Qual plano você deseja para essa cobertura?
                       </h3>
 
@@ -555,14 +555,14 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
                             htmlFor={`plan-${plan.id}`}
                             className={`flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
                               formData.plan_id === plan.id
-                                ? "border-blue-600 bg-blue-50"
-                                : "border-gray-200 hover:border-gray-300"
+                                ? "border-primary bg-primary/10"
+                                : "border-border hover:border-primary/50"
                             }`}
                           >
                             <RadioGroupItem value={plan.id} id={`plan-${plan.id}`} className="mt-0.5" />
                             <div className="flex-1">
-                              <div className="font-medium text-gray-900">{plan.name.replace(/COM LIGACAO/g, "COM LIGAÇÃO")}</div>
-                              <div className="text-sm text-gray-600 mt-1">
+                              <div className="font-medium text-foreground">{plan.name.replace(/COM LIGACAO/g, "COM LIGAÇÃO")}</div>
+                              <div className="text-sm text-muted-foreground mt-1">
                                 R$ {plan.price.toFixed(2).replace(".", ",")}/mês
                               </div>
                             </div>
@@ -570,30 +570,30 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
                         ))}
                       </RadioGroup>
 
-                      <div className="mt-4 space-y-2 text-sm text-gray-600">
+                      <div className="mt-4 space-y-2 text-sm text-muted-foreground">
                         <p>Após consumo total da franquia navegue ilimitado em velocidade reduzida.</p>
                         <p className="font-medium">Apps que não consomem da franquia:</p>
                         <div className="flex flex-wrap gap-2">
                           {selectedOperator === "TIM" && (
                             <>
-                              <span className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700">WhatsApp</span>
-                              <span className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700">Facebook</span>
-                              <span className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700">Instagram</span>
+                              <span className="inline-flex items-center rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-card-foreground">WhatsApp</span>
+                              <span className="inline-flex items-center rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-card-foreground">Facebook</span>
+                              <span className="inline-flex items-center rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-card-foreground">Instagram</span>
                             </>
                           )}
                           {selectedOperator === "CLARO" && (
                             <>
-                              <span className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700">WhatsApp</span>
-                              <span className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700">Waze</span>
-                              <span className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700">Facebook</span>
-                              <span className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700">Instagram</span>
+                              <span className="inline-flex items-center rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-card-foreground">WhatsApp</span>
+                              <span className="inline-flex items-center rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-card-foreground">Waze</span>
+                              <span className="inline-flex items-center rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-card-foreground">Facebook</span>
+                              <span className="inline-flex items-center rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-card-foreground">Instagram</span>
                             </>
                           )}
                           {selectedOperator === "VIVO" && (
                             <>
-                              <span className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700">WhatsApp</span>
-                              <span className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700">Facebook</span>
-                              <span className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-700">Instagram</span>
+                              <span className="inline-flex items-center rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-card-foreground">WhatsApp</span>
+                              <span className="inline-flex items-center rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-card-foreground">Facebook</span>
+                              <span className="inline-flex items-center rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-card-foreground">Instagram</span>
                             </>
                           )}
                         </div>
@@ -641,9 +641,9 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="cell">{"WhatsApp"} <span className="text-red-500">*</span></Label>
                   <Input id="cell" type="tel" placeholder="(00) 00000-0000" value={formData.cell} onChange={(e) => handleInputChange("cell", e.target.value)} onBlur={(e) => { const numbers = e.target.value.replace(/\D/g, ""); if (numbers.length === 11) validateWhatsApp(e.target.value); else if (numbers.length > 0) setWhatsappValid(false) }} maxLength={15} required className={whatsappValid === false ? "border-red-500 border-2" : whatsappValid === true ? "border-green-500" : ""} />
-                  {whatsappValidating && <p className="text-sm text-blue-600 font-medium">{"Validando WhatsApp..."}</p>}
+                  {whatsappValidating && <p className="text-sm text-primary font-medium">{"Validando WhatsApp..."}</p>}
                   {whatsappValid === false && !whatsappValidating && <p className="text-sm text-red-500 font-medium">{"WhatsApp inválido! Digite 11 dígitos (DDD + 9 + número)."}</p>}
-                  {whatsappValid === true && <p className="text-sm text-green-600 font-medium">{"WhatsApp válido"}</p>}
+                  {whatsappValid === true && <p className="text-sm text-emerald-400 font-medium">{"WhatsApp válido"}</p>}
                 </div>
               </div>
             </CardContent>
@@ -701,28 +701,28 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
               <RadioGroup value={formData.typeFrete} onValueChange={(value) => handleInputChange("typeFrete", value)} className="flex flex-col gap-3">
                 {formData.typeChip === "fisico" && (
                   <>
-                    <label htmlFor="frete-carta" className={`flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.typeFrete === "Carta" ? "border-blue-600 bg-blue-50" : "border-gray-200 hover:border-gray-300"}`}>
+                    <label htmlFor="frete-carta" className={`flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.typeFrete === "Carta" ? "border-primary bg-primary/10" : "border-border hover:border-primary/50"}`}>
                       <RadioGroupItem value="Carta" id="frete-carta" className="mt-0.5" />
                       <div>
-                        <span className="font-medium text-gray-900">{"Enviar via Carta Registrada"}</span>
-                        <p className="text-sm text-gray-500">{"Para quem vai receber o chip pelos Correios (Prazo de entrega 7 a 15 dias úteis.) Você receberá um código de rastreio."}</p>
+                        <span className="font-medium text-foreground">{"Enviar via Carta Registrada"}</span>
+                        <p className="text-sm text-muted-foreground">{"Para quem vai receber o chip pelos Correios (Prazo de entrega 7 a 15 dias úteis.) Você receberá um código de rastreio."}</p>
                       </div>
                     </label>
-                    <label htmlFor="frete-sem" className={`flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.typeFrete === "semFrete" ? "border-blue-600 bg-blue-50" : "border-gray-200 hover:border-gray-300"}`}>
+                    <label htmlFor="frete-sem" className={`flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.typeFrete === "semFrete" ? "border-primary bg-primary/10" : "border-border hover:border-primary/50"}`}>
                       <RadioGroupItem value="semFrete" id="frete-sem" className="mt-0.5" />
                       <div>
-                        <span className="font-medium text-gray-900">{"Retirar na Associação ou com um Associado"}</span>
-                        <p className="text-sm text-gray-500">{"Se você vai retirar o chip pessoalmente com um representante"}</p>
+                        <span className="font-medium text-foreground">{"Retirar na Associação ou com um Associado"}</span>
+                        <p className="text-sm text-muted-foreground">{"Se você vai retirar o chip pessoalmente com um representante"}</p>
                       </div>
                     </label>
                   </>
                 )}
                 {formData.typeChip === "eSim" && (
-                  <label htmlFor="frete-esim" className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.typeFrete === "eSim" ? "border-blue-600 bg-blue-50" : "border-gray-200 hover:border-gray-300"}`}>
+                  <label htmlFor="frete-esim" className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${formData.typeFrete === "eSim" ? "border-primary bg-primary/10" : "border-border hover:border-primary/50"}`}>
                     <RadioGroupItem value="eSim" id="frete-esim" />
                     <div>
-                      <span className="font-medium text-gray-900">{"Sem a necessidade de envio (eSim)"}</span>
-                      <p className="text-sm text-gray-500">{"O chip digital será ativado diretamente no seu aparelho"}</p>
+                      <span className="font-medium text-foreground">{"Sem a necessidade de envio (eSim)"}</span>
+                      <p className="text-sm text-muted-foreground">{"O chip digital será ativado diretamente no seu aparelho"}</p>
                     </div>
                   </label>
                 )}
@@ -737,10 +737,10 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
             <Button type="button" variant="outline" onClick={goBack}>{"Voltar"}</Button>
           ) : <div />}
           {step < 5 ? (
-            <Button type="button" onClick={goNext} disabled={!canContinue()} className="bg-blue-600 hover:bg-blue-700 text-white">{"Continuar"}</Button>
+            <Button type="button" onClick={goNext} disabled={!canContinue()} className="bg-primary hover:bg-primary/90 text-white">{"Continuar"}</Button>
           ) : (
             !submitted && (
-              <Button type="submit" disabled={loading || !canContinue()} className="bg-green-600 hover:bg-green-700 text-white">
+              <Button type="submit" disabled={loading || !canContinue()} className="bg-accent hover:bg-accent/90 text-accent-foreground text-white">
                 {"Finalizar Cadastro"}
               </Button>
             )
@@ -751,12 +751,12 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
       {/* Popup de processamento */}
       {loading && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="bg-white rounded-lg p-6 mx-auto max-w-md w-full shadow-2xl text-center">
+          <div className="bg-card rounded-lg p-6 mx-auto max-w-md w-full shadow-2xl text-center">
             <div className="flex justify-center mb-4">
-              <div className="h-10 w-10 animate-spin rounded-full border-4 border-blue-600 border-t-transparent" />
+              <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary border-t-transparent" />
             </div>
             <h2 className="text-lg font-bold text-red-600 mb-3">{"ATEN\u00C7\u00C3O!"}</h2>
-            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+            <p className="text-card-foreground text-sm sm:text-base leading-relaxed">
               {"N\u00E3o feche essa tela. Estamos processando o seu cadastro. Aguarde a finaliza\u00E7\u00E3o."}
             </p>
           </div>
@@ -768,12 +768,12 @@ export default function RegistrationForm({ representante }: RegistrationFormProp
       {/* Modal de Consulta de Cobertura */}
       {showCoberturaModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="bg-white rounded-lg shadow-2xl w-full max-w-4xl h-[85vh] flex flex-col relative">
+          <div className="bg-card rounded-lg shadow-2xl w-full max-w-4xl h-[85vh] flex flex-col relative">
             <button
               onClick={() => setShowCoberturaModal(false)}
-              className="absolute top-3 right-3 z-10 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className="absolute top-3 right-3 z-10 p-2 rounded-full bg-secondary hover:bg-gray-200 transition-colors"
             >
-              <X className="w-5 h-5 text-gray-600" />
+              <X className="w-5 h-5 text-muted-foreground" />
             </button>
             <iframe
               src="https://cobertura.suanetturbinada.com.br"

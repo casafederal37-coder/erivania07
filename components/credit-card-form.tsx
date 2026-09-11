@@ -331,7 +331,7 @@ export default function CreditCardForm({ billingId, amount, onSuccess, onBack }:
           </select>
         </div>
 
-        <Button type="submit" className="w-full" disabled={loading || !mpLoaded}>
+        <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={loading || !mpLoaded}>
           {loading ? "Processando..." : `Pagar R$ ${amount.toFixed(2)}`}
         </Button>
       </form>

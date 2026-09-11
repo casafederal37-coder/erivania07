@@ -35,9 +35,9 @@ export default async function RepresentantePage({ params }: { params: Promise<{ 
 
   if (!representante) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-6 md:py-12 px-2 md:px-4">
+      <main className="min-h-screen page-gradient py-6 md:py-12 px-2 md:px-4">
         <div className="container mx-auto max-w-4xl w-full px-3 sm:px-6 md:px-8">
-          <div className="bg-white rounded-lg shadow-xl p-4 sm:p-6 md:p-8">
+          <div className="bg-card rounded-lg card-glow p-4 sm:p-6 md:p-8">
             <p className="text-center text-red-600 text-xl">Representante não encontrado.</p>
           </div>
         </div>
@@ -46,12 +46,12 @@ export default async function RepresentantePage({ params }: { params: Promise<{ 
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 py-6 md:py-12 px-2 md:px-4">
+    <main className="min-h-screen page-gradient py-6 md:py-12 px-2 md:px-4">
       <div className="container mx-auto max-w-4xl w-full px-3 sm:px-6 md:px-8">
-        <div className="bg-white rounded-lg shadow-xl p-4 sm:p-6 md:p-8">
+        <div className="bg-card rounded-lg card-glow p-4 sm:p-6 md:p-8">
           <RegistrationForm representante={representante} />
         </div>
-        <footer className="text-center mt-6 md:mt-8 text-xs sm:text-sm text-gray-600 px-2">
+        <footer className="text-center mt-6 md:mt-8 text-xs sm:text-sm text-muted-foreground px-2">
           <p>2026 © Federal Associados (CNPJ 29.383-343-0001/64) - Todos os direitos reservados |</p>
           <p className="mt-1">Patrocinador: {representante.nome}</p>
         </footer>
