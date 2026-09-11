@@ -18,10 +18,10 @@ export default function WelcomeVideoPage() {
   }
 
   return (
-    <div className="min-h-screen page-gradient flex items-center justify-center p-3 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center p-3 overflow-hidden">
       <div className="w-full max-w-4xl h-screen flex flex-col justify-center py-4">
-        <div className="bg-card rounded-lg card-glow p-4 flex flex-col h-full max-h-[95vh]">
-          <h1 className="text-base sm:text-xl md:text-2xl font-bold text-foreground text-center leading-tight mb-3 flex-shrink-0">
+        <div className="bg-white rounded-lg shadow-xl p-4 flex flex-col h-full max-h-[95vh]">
+          <h1 className="text-base sm:text-xl md:text-2xl font-bold text-gray-900 text-center leading-tight mb-3 flex-shrink-0">
             Seja muito bem-vindo(a) à Família Federal Associados. Para finalizar o seu cadastro assista ao vídeo abaixo para realizar a sua adesão
           </h1>
 
@@ -47,7 +47,7 @@ export default function WelcomeVideoPage() {
           <div className="flex justify-center flex-shrink-0">
             <Button
               onClick={handleContinue}
-              className="bg-primary hover:bg-primary/90 text-white text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 h-auto w-full sm:w-auto"
+              className="bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-5 h-auto w-full sm:w-auto"
             >
               Continuar
             </Button>

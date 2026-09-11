@@ -111,7 +111,7 @@ export default function PixPayment({ billingId, amount, onSuccess, onBack }: Pix
       <div className="flex items-center justify-center py-12">
         <div className="text-center space-y-4">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-          <p className="text-muted-foreground">Gerando código PIX...</p>
+          <p className="text-gray-600">Gerando código PIX...</p>
         </div>
       </div>
     )
@@ -120,7 +120,7 @@ export default function PixPayment({ billingId, amount, onSuccess, onBack }: Pix
   if (!pixData) {
     return (
       <div className="text-center py-12">
-        <p className="text-muted-foreground mb-4">Erro ao gerar código PIX</p>
+        <p className="text-gray-600 mb-4">Erro ao gerar código PIX</p>
         <Button onClick={generatePix}>Tentar novamente</Button>
       </div>
     )
@@ -135,10 +135,10 @@ export default function PixPayment({ billingId, amount, onSuccess, onBack }: Pix
         <div className="text-lg font-semibold">Total: R$ {amount.toFixed(2)}</div>
       </div>
 
-      <div className="bg-primary/10 border border-primary/30 rounded-lg p-4">
+      <div className="bg-green-50 border border-green-200 rounded-lg p-4">
         <div className="flex items-start gap-3">
-          <CheckCircle2 className="w-5 h-5 text-primary mt-0.5" />
-          <div className="text-sm text-primary">
+          <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5" />
+          <div className="text-sm text-green-800">
             <p className="font-semibold mb-1">PIX gerado com sucesso!</p>
             <p>Escaneie o QR Code ou copie o código para pagar. O pagamento é confirmado automaticamente.</p>
           </div>
@@ -146,7 +146,7 @@ export default function PixPayment({ billingId, amount, onSuccess, onBack }: Pix
       </div>
 
       <div className="flex flex-col items-center space-y-4">
-        <div className="bg-card p-4 rounded-lg border-2 border-border">
+        <div className="bg-white p-4 rounded-lg border-2 border-gray-200">
           <Image
             src={`data:image/png;base64,${pixData.qrCodeBase64}`}
             alt="QR Code PIX"
@@ -157,9 +157,9 @@ export default function PixPayment({ billingId, amount, onSuccess, onBack }: Pix
         </div>
 
         <div className="w-full space-y-2">
-          <p className="text-sm text-muted-foreground text-center">Código PIX Copia e Cola:</p>
-          <div className="bg-secondary p-3 rounded-lg border border-border">
-            <p className="text-xs font-mono break-all text-muted-foreground">{pixData.qrCode}</p>
+          <p className="text-sm text-gray-600 text-center">Código PIX Copia e Cola:</p>
+          <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
+            <p className="text-xs font-mono break-all text-gray-700">{pixData.qrCode}</p>
           </div>
         </div>
 
@@ -178,12 +178,12 @@ export default function PixPayment({ billingId, amount, onSuccess, onBack }: Pix
         </Button>
       </div>
 
-      <div className="text-center text-sm text-muted-foreground">
+      <div className="text-center text-sm text-gray-500">
         <p>Aguardando confirmação do pagamento...</p>
         <div className="flex items-center justify-center gap-1 mt-2">
-          <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-          <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: "0.2s" }}></div>
-          <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: "0.4s" }}></div>
+          <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+          <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: "0.2s" }}></div>
+          <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: "0.4s" }}></div>
         </div>
       </div>
     </div>

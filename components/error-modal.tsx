@@ -30,7 +30,7 @@ export default function ErrorModal({ open, onOpenChange, title = "Ops!", message
           <AlertDialogDescription className="text-center text-base text-foreground">{message}</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter className="sm:justify-center">
-          <AlertDialogAction className="bg-primary hover:bg-primary/90 px-8">OK</AlertDialogAction>
+          <AlertDialogAction className="bg-blue-600 hover:bg-blue-700 px-8">OK</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
